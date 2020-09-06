@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
 import InputLabel from "@material-ui/core/InputLabel";
 import Modals from './components/modal';
+import Modals1 from './components/DetalleProducto';
 
 function App() {
   const [responsive, setResponsive] = useState("vertical");
@@ -11,23 +12,24 @@ function App() {
   const [dataBD, setData]=useState([]);
 
   const columns = [
-      { name: 'idArticulo', field: 'idArticulo', options:{filter:false}},
-      { name: 'Codigo', field: 'Codigo' , options:{filter:false}},
-      { name: 'CodigoProveedor', field: 'CodigoProveedor', options:{filter:false} },
-      { name: 'CodigoAlterno', field: 'CodigoAlterno', options:{filter:false} },
-      { name: 'NombreEspañol', field: 'NombreEspañol', options:{filter:false}},
-      { name: 'NombreMexico', field: 'NombreMexico', options:{filter:false} },
-      { name: 'NombreIngles', field: 'NombreIngles', options:{filter:false} },
-      { name: 'CodigoArancelario', field: 'CodigoArancelario', options:{filter:false} },
-      { name: 'Observacion', field: 'Observacion', options:{filter:false} },
-      { name: 'PesoLB', field: 'PesoLB', options:{filter:false}},
-      { name: 'Linea', field: 'Linea',options:{filter:true}},
-      { name: 'Modelo', field: 'Modelo', options:{filter:true}},
-      { name: 'Marca', field: 'Marca'},
-      { name: 'UBICACION', field: 'UBICACION', options:{filter:false}}
-  ];
+    
+    { name: 'idArticulo', field: 'idArticulo', options:{filter:false, display:false}},
+    { name: 'Parte', field: 'Parte' , options:{filter:true}},
+    { name: 'Clasificacion', field: 'Clasificacion', options:{filter:true} },
+    { name: 'ClasificacionParte', field: 'ClasificacionParte', options:{filter:true} },
+    { name: 'Codigo', field: 'Codigo', options:{filter:false}},
+    { name: 'NombreEsp', field: 'NombreEsp', options:{filter:false} },
+    { name: 'NombreIng', field: 'NombreIng', options:{filter:false} },
+    { name: 'Rotacion', field: 'Rotacion', options:{filter:true} },
+    {name:'Modelos',options: {
+      filter: true,
+      customBodyRender: (value, tableMeta, updateValue) => {
+          if(value!=''){return <span className="badge" style={{backgroundColor: "#00FFFF"}} >Ver Modelos</span>;}
+  }
+}
+}     
 
-  
+];
 
   useEffect(() => {
     async function cargaData(){
