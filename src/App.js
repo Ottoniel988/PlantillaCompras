@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
 import InputLabel from "@material-ui/core/InputLabel";
 import Modals from './components/modal';
-import Modals1 from './components/DetalleProducto';
+
 
 function App() {
   const [responsive, setResponsive] = useState("vertical");
@@ -65,7 +65,7 @@ function App() {
   return (
     <React.Fragment>
       <InputLabel id="demo-simple-select-label"><strong>Plantilla BD Compras</strong></InputLabel>
-      <Modals/>
+      <Modals persona="cargaData()" />
       <MUIDataTable
       
         title={"Listado de Productos"}

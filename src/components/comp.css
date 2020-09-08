@@ -24,3 +24,15 @@
   .hola{
       resize:none
   }
+
+  .my-className.required::after {
+    content: "*";
+    color: rgb(255, 95, 95);
+    position: absolute;
+    top: -5px;
+    right: -10px;
+  }
+  #button{
+    margin-left: 890px;
+    margin-top: 20px;
+  }
